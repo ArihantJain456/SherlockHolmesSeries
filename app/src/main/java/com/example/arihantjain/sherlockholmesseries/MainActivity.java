@@ -123,8 +123,10 @@ public class MainActivity extends YouTubeBaseActivity implements Communicator,Yo
             }
             if(requestCode == EPISODE_ACIVITY){
                 Toast.makeText(this, "ret" + SeasonTrailer[currentSeason-1], Toast.LENGTH_SHORT).show();
-                player.loadVideo(SeasonTrailer[currentSeason-1]);
-                player.play();
+                if(youtubeInitialized) {
+                    player.cueVideo(SeasonTrailer[currentSeason - 1]);
+                    player.play();
+                }
             }
         }
     }
